@@ -22,7 +22,7 @@ app.get('/bad', (request, response) => {
     throw new Error('ERROR!');
 });
 
-////////////////////////////////Location///////////////////////////////////////////
+///////////////////////////////////////////Location///////////////////////////////////////////
 
 function Location(city, geoData) {
     this.search_query = city;
@@ -50,27 +50,36 @@ function errorHandler(error, request, response) {
 
 ///////////////////////////////////////////Weather///////////////////////////////////////////
 
-function Weather(forecast, darkskyData) {
-    this.forecast = forecast;
+function Weather(darkskyData) {
     this.time = darkskyData.data[0].valid_date;
+    this.forecast = darkskyData.data[0].weather.description;
+    Weather.all.push(this);
 }
+Weather.all = [];
 app.get('/weather', (request, response) => {
     try {
+        let theWether = [];
         const darkskyData = require('./data/darksky.json');
-        const forecast = request.query.forecast;
-        const weatherData = new Weather(forecast, darkskyData);
-        response.status(200).json(weatherData);
-        console.log(forecast);
+        for (let i = 0; i < darkskyData.data.length; i++) {
+            const weatherData = new Weather(darkskyData);
+            theWether.push(weatherData);
+        }
+
+        // console.log(theWether);
+        response.status(200).json(theWether);
     } catch (error) {
         errorHandler(error, request, response);
     }
 });
+var date = new Date("01/01/2000");
+console.log(date.toDateString());
 
 ///////////////////////////////////////////Not Gound/////////////////////////////////////////
 
-    function notFound(request, response) {
-        response.status(404).send('NOT FOUND!');
-    }
+function notFound(request, response) {
+    response.status(404).send('NOT FOUND!');
+}
 app.use('*', notFound);
 
 app.listen(PORT, () => console.log(`The server is up and running on ${PORT}`));
+
