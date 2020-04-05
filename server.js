@@ -13,7 +13,7 @@ app.get('/', (request, response) => {
     response.status(200).send('The Home Page.');
 });
 
-console.log('PORT:', PORT);
+// console.log('PORT:', PORT);
 
 // console.log('cors:',cors);
 // console.log('app:',app);
@@ -50,29 +50,32 @@ function errorHandler(error, request, response) {
 
 ///////////////////////////////////////////Weather///////////////////////////////////////////
 
-function Weather(darkskyData) {
-    this.time = darkskyData.data[0].valid_date;
-    this.forecast = darkskyData.data[0].weather.description;
-    Weather.all.push(this);
+function Weather(darkskyData,idx) {
+    this.time = darkskyData.data[idx].valid_date;
+    this.forecast = darkskyData.data[idx].weather.description;
+    // Weather.all.push(this);
 }
-Weather.all = [];
+// Weather.all = [];
+
 app.get('/weather', (request, response) => {
     try {
         let theWether = [];
         const darkskyData = require('./data/darksky.json');
         for (let i = 0; i < darkskyData.data.length; i++) {
-            const weatherData = new Weather(darkskyData);
+            let weatherData = new Weather(darkskyData,i);
             theWether.push(weatherData);
+            // let timeDate = String(weatherData.time);
+            // console.log(timeDate);
+            // var date = new Date(timeDate);
+            // console.log(date.toDateString());
         }
-
-        // console.log(theWether);
         response.status(200).json(theWether);
     } catch (error) {
         errorHandler(error, request, response);
     }
 });
-var date = new Date("01/01/2000");
-console.log(date.toDateString());
+// var date = new Date("01/01/2000");
+// console.log(date.toDateString());
 
 ///////////////////////////////////////////Not Gound/////////////////////////////////////////
 
@@ -82,4 +85,3 @@ function notFound(request, response) {
 app.use('*', notFound);
 
 app.listen(PORT, () => console.log(`The server is up and running on ${PORT}`));
-
