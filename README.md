@@ -1,49 +1,75 @@
 # city_explorer_api
 
-**Number and name of feature: Repository Set Up.**
+**Number and name of feature: 1. Repository Set Up.**
 
-Estimate of time needed to complete: 1 Hours.
+Estimate of time needed to complete: 1 Hour.
 
 Start time: 2:45 am.
 
-Finish time: 3:20 am
+Finish time: 3:30 am
 
-Actual time needed to complete: 35 minutes.
+Actual time needed to complete: 45 minutes.
 
 ---
 
-**Number and name of feature: Locations.**
+**Number and name of feature: 2. Locations.**
 
-Estimate of time needed to complete: 2 Hours.
+Estimate of time needed to complete: 1 Hour.
 
 Start time: 4:30 am.
 
-Finish time: 
+Finish time: 6:00 am
 
-Actual time needed to complete: 
+Actual time needed to complete: 1 hour and half.
 
 
 ---
 
-# Project Name
+**Number and name of feature: 3. Weather.**
 
-**Author**: Your Name Goes Here
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+Estimate of time needed to complete: 2 Hours.
+
+Start time: 6:30 am.
+
+Finish time: 1:30 pm.
+
+Actual time needed to complete: 7 Hours.
+
+---
+
+**Number and name of feature: 4. Errors.**
+
+Estimate of time needed to complete: 2 Hours.
+
+Start time: 1:30 am.
+
+Finish time: 1:45 am.
+
+Actual time needed to complete: 15 minutes.
+
+---
+
+
+# Lab-06: city_explorer_api
+
+**Author**: Esra'a Mamoun.
+**Version**: 1.0.0 
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+I am not sure, but I think it is the first building site for me to transfer information from the DataBase to the server
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+A person must struggle with JavaScript and learn it well to build this.
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+JavaScript language.
+Dotenv library.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
+[Google](https://www.google.com/)
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource.
 
-## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
+---
+
+
+***Note:*** Fatema helped me in >> How to include the index in the weather constructor line (53,65) in server.js file.

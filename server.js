@@ -73,6 +73,13 @@ app.get('/weather', (request, response) => {
 // var date = new Date("01/01/2000");
 // console.log(date.toDateString());
 
+///////////////////////////////////////////Somthing wrong/////////////////////////////////////
+
+function wrongPage(request, response) {
+    response.status(500).send('Sorry, something went wrong!');
+}
+app.get('/explore', wrongPage);
+
 ///////////////////////////////////////////Not Found/////////////////////////////////////////
 
 function notFound(request, response) {
