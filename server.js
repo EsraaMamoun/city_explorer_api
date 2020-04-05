@@ -51,7 +51,7 @@ function errorHandler(error, request, response) {
 ///////////////////////////////////////////Weather///////////////////////////////////////////
 
 function Weather(darkskyData,idx) {
-    this.time = darkskyData.data[idx].valid_date;
+    this.time = (new Date(darkskyData.data[idx].valid_date)).toDateString();
     this.forecast = darkskyData.data[idx].weather.description;
     // Weather.all.push(this);
 }
@@ -64,10 +64,6 @@ app.get('/weather', (request, response) => {
         for (let i = 0; i < darkskyData.data.length; i++) {
             let weatherData = new Weather(darkskyData,i);
             theWether.push(weatherData);
-            // let timeDate = String(weatherData.time);
-            // console.log(timeDate);
-            // var date = new Date(timeDate);
-            // console.log(date.toDateString());
         }
         response.status(200).json(theWether);
     } catch (error) {
@@ -77,7 +73,7 @@ app.get('/weather', (request, response) => {
 // var date = new Date("01/01/2000");
 // console.log(date.toDateString());
 
-///////////////////////////////////////////Not Gound/////////////////////////////////////////
+///////////////////////////////////////////Not Found/////////////////////////////////////////
 
 function notFound(request, response) {
     response.status(404).send('NOT FOUND!');
